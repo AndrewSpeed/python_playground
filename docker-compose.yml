@@ -1,7 +1,9 @@
 services:
   pytest:
+    image: playground_pytest
     build: .
-    command: pytest
+    command: ["uv", "run", "pytest"]
     volumes:
-      - "./:/usr/src/app"
+      - "./src:/usr/src/app/src"
+      - "./tests:/usr/src/app/tests"
     working_dir: "/usr/src/app"
